@@ -26,10 +26,28 @@
     img {
       max-width: 100%;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+
+    #logo.hoverable {
+      cursor: pointer;
+    }
+
+    a.contact-link {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+      margin-bottom: 30px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    a.contact-link:hover {
+      text-decoration: underline;
     }
 
     .contact-form {
+      display: none; /* Initially hidden */
       background-color: #f4f4f4;
       padding: 20px;
       border-radius: 8px;
@@ -82,7 +100,10 @@
   </style>
 </head>
 <body>
-  <img src="sigma_street_logo.png" alt="Sigma Street Capital Logo" />
+  <img id="logo" class="hoverable" src="sigma_street_logo.png" alt="Sigma Street Capital Logo" onclick="if (this.style.transform === 'scale(0.5)') { this.style.transform='scale(1)'; document.querySelector('.contact-form').style.display='none'; document.querySelector('.contact-link').style.display='inline-block'; }" />
+  <a class="contact-link" onclick="document.querySelector('.contact-form').style.display='block'; this.style.display='none'; document.querySelector('img').style.transform='scale(0.5)'; document.querySelector('img').style.transition='transform 0.3s ease';">
+    Contact Us
+  </a>
 
   <form class="contact-form" action="https://formsubmit.co/info@sigmastreetcapital.com" method="POST">
     <h2>Contact Us</h2>
